@@ -3,15 +3,15 @@ import {SafeAreaView, View} from 'react-native';
 import {Button, Divider, Layout, TopNavigation} from '@ui-kitten/components';
 
 interface Props {
-  navigate: any;
+  navigation: any;
 }
 
 const WelcomePage = (props: Props) => {
   console.log('Welcome page props', props);
-  const {navigate} = props;
+  const {navigation} = props;
   const navigateToJoinGameDetails = useCallback(() => {
-    navigate.navigate('Join Game');
-  }, [navigate]);
+    navigation.navigate('Join Game');
+  }, [navigation]);
 
   return (
     <SafeAreaView style={{flex: 1}}>
