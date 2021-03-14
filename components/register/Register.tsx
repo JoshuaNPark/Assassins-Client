@@ -1,12 +1,8 @@
 import {SafeAreaView, StyleSheet, View} from 'react-native';
-import React from 'react';
-import {
-  Button,
-  Divider,
-  Input,
-  Layout,
-  Text
-} from '@ui-kitten/components';
+import React, {useCallback, useContext, useState} from 'react';
+import {Button, Divider, Input, Layout, Text} from '@ui-kitten/components';
+import registerUser from '../../api/register-user';
+import {AxiosContext} from '../../App';
 
 const styles = StyleSheet.create({
   h1: {
@@ -27,6 +23,27 @@ const styles = StyleSheet.create({
 });
 
 const Register = () => {
+  const [username, setUserName] = useState('');
+  const [name, setName] = useState('');
+  const [bio, setBio] = useState('');
+  const [favLoc, setFavLoc] = useState('');
+
+  const axios = useContext(AxiosContext);
+
+  const registerUserCallback = useCallback(() => {
+    registerUser({
+      axios,
+      userId: username,
+      name,
+      bio,
+      favouriteLocation: favLoc,
+      onSuccess: (response) => {
+        //TODO: navigate to create game
+      },
+      onFailure: () => {},
+    });
+  }, [username, name, bio, favLoc]);
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <Divider />
@@ -34,11 +51,36 @@ const Register = () => {
         <Text category="h1" style={styles.h1}>
           Register:
         </Text>
-        <Input style={styles.input} placeholder={'Username'}/>
-        <Input style={styles.input} placeholder={'Bio'}/>
-        <Input style={styles.input} placeholder={'Favourite Location'}/>
+        <Input
+          value={username}
+          onChangeText={(text) => setUserName(text)}
+          style={styles.input}
+          placeholder={'Username'}
+        />
+        <Input
+          value={name}
+          onChangeText={(text) => setName(text)}
+          style={styles.input}
+          placeholder={'Name'}
+        />
+        <Input
+          value={bio}
+          onChangeText={(text) => setBio(text)}
+          style={styles.input}
+          placeholder={'Bio'}
+        />
+        <Input
+          value={favLoc}
+          onChangeText={(text) => setFavLoc(text)}
+          style={styles.input}
+          placeholder={'Favourite Location'}
+        />
         <View style={{flexDirection: 'row'}}>
-          <Button style={styles.button} onPress={console.log('Register Pressed')}>
+          <Button
+            style={styles.button}
+            onPress={() => {
+              registerUserCallback();
+            }}>
             Register
           </Button>
         </View>
