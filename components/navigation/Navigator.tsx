@@ -7,7 +7,7 @@ import TestPage from '../stub/TestPage';
 import KillCamScreen from '../kill-cam/KillCamScreen';
 import ViewGame from '../view-game/ViewGame';
 import Register from '../register/Register';
-
+import CreateGame from '../create-game/CreateGame';
 
 const {Navigator: StackNavigator, Screen} = createStackNavigator();
 
@@ -23,7 +23,7 @@ const Navigator = () => {
         <Screen name="Join Game" component={(props) => <JoinGame {...props} />} />
         <Screen name="View Game" component={ViewGame} />
         <Screen name="Register" component={Register} />
-        <Screen name="Kill Cam" component={KillCamScreen} />
+        <Screen name="Create Game" component={CreateGame} />
       </StackNavigator>
     </NavigationContainer>
   );
