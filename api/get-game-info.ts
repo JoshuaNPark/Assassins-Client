@@ -7,8 +7,7 @@ interface Response {
   target_ids: string[];
   location: string;
   max_players: number;
-  start_date: string;
-  end_date: string;
+  end_date: number;
 }
 
 interface Props {
