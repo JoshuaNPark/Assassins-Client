@@ -12,20 +12,13 @@ interface Response {
 interface Props {
   axios: AxiosInstance;
   userId: string;
-  onSuccess: (response: Response) => void;
-  onFailure: () => void;
 }
 
 const USER_ENDPOINT = 'user';
 
 const getUser = async (props: Props) => {
-  const {axios, userId, onSuccess, onFailure} = props;
-  try {
-    const response = await axios.get<Response>(`${USER_ENDPOINT}/${userId}`);
-    onSuccess(response.data);
-  } catch (e) {
-    onFailure();
-  }
+  const {axios, userId} = props;
+  return await axios.get<Response>(`${USER_ENDPOINT}/${userId}`);
 };
 
 export default getUser;
