@@ -23,6 +23,9 @@ const JoinGame = (props: Props) => {
   const navigateToViewGame = useCallback(() => {
     navigation.navigate('View Game');
   }, [navigation]);
+  const navigateToCreateGame = useCallback(() => {
+    navigation.navigate('Create Game');
+  }, [navigation]);
   return (
     <SafeAreaView style={{flex: 1}}>
       <Divider />
@@ -31,7 +34,7 @@ const JoinGame = (props: Props) => {
         <Input style={styles.input} placeholder="Game ID" />
         <View style={{flexDirection: 'row'}}>
           <Button style={styles.button} onPress={navigateToViewGame}>Join</Button>
-          <Button style={styles.button} onPress={navigateToViewGame}>Create</Button>
+          <Button style={styles.button} onPress={navigateToCreateGame}>Create</Button>
         </View>
       </Layout>
     </SafeAreaView>
