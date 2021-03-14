@@ -1,6 +1,17 @@
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import React  from 'react';
-import { Button, Divider, Icon, Layout, List, ListItem, StyleService, Text, useTheme } from "@ui-kitten/components";
+import {
+  Button,
+  Divider,
+  Icon,
+  Layout,
+  List,
+  ListItem,
+  StyleService,
+  Text,
+  useTheme,
+  withStyles
+} from "@ui-kitten/components";
 
 const styles = StyleSheet.create({
   h1: {
@@ -17,23 +28,31 @@ const styles = StyleSheet.create({
     width: '80%',
     margin: 15,
   },
+  targetbutton: {
+    margin: 10,
+    backgroundColor: '#FF3D71',
+    borderColor: '#FF3D71',
+  },
 });
 
-const data = new Array(10).fill({
+const targets = new Array(10).fill({
   title: 'Target',
   description: 'Description for target',
 });
 
-const ViewGame = () => {
+const players = new Array(10).fill({
+  title: 'Player',
+  description: 'Description for player',
+});
 
-  const theme = useTheme();
+const ViewGame = () => {
 
   const renderTarget = ({item, index}) => (
     <ListItem
       title={`${item.title} ${index + 1}`}
       description={`${item.description} ${index + 1}`}
       accessoryLeft={renderTargetIcon}
-      accessoryRight={renderItemAccessory}
+      accessoryRight={renderTargetAccessory}
     />
   );
 
@@ -42,16 +61,22 @@ const ViewGame = () => {
       title={`${item.title} ${index + 1}`}
       description={`${item.description} ${index + 1}`}
       accessoryLeft={renderPlayerIcon}
-      accessoryRight={renderItemAccessory}
+      accessoryRight={renderPlayerAccessory}
     />
   );
 
-  const renderItemAccessory = (props) => (
+  const renderPlayerAccessory = (props) => (
     <Button size='tiny'>VIEW</Button>
   );
 
+  const renderTargetAccessory = (props) => (
+    <Button
+      style={styles.targetbutton}
+      size='tiny'>VIEW</Button>
+  );
+
   const renderTargetIcon = (props) => (
-    <Icon {...props} name='shake-outline'/>
+    <Icon {...props}  name='shake-outline'/>
   );
 
   const renderPlayerIcon = (props) => (
@@ -65,16 +90,20 @@ const ViewGame = () => {
         <Text category="h1" style={styles.h1}>Game Info:</Text>
         <List
           style={styles.container}
-          data={data}
+          data={targets}
           ItemSeparatorComponent={Divider}
           renderItem={renderTarget}
         />
         <List
           style={styles.container}
-          data={data}
+          data={players}
           ItemSeparatorComponent={Divider}
           renderItem={renderPlayer}
         />
+        <View style={{flexDirection: 'row'}}>
+          <Button style={styles.targetbutton} onPress={console.log('Kill Pressed!')}>Kill</Button>
+          <Button style={styles.button} onPress={'Defend Pressed'}>Defend</Button>
+        </View>
       </Layout>
     </SafeAreaView>
   );
