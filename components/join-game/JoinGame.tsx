@@ -29,7 +29,10 @@ const JoinGame = (props: Props) => {
       <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <Text category="h1" style={styles.h1}>Join Game</Text>
         <Input style={styles.input} placeholder="Game ID" />
-        <Button style={styles.button} onPress={navigateToViewGame}>Join</Button>
+        <View style={{flexDirection: 'row'}}>
+          <Button style={styles.button} onPress={navigateToViewGame}>Join</Button>
+          <Button style={styles.button} onPress={navigateToViewGame}>Create</Button>
+        </View>
       </Layout>
     </SafeAreaView>
   );

@@ -40,31 +40,34 @@ const targets = new Array(10).fill({
   description: 'Description for target',
 });
 
-const sampleTargets = [{
-  title: 'Sam',
-  description: 'Hi, I\'m Sam and I love to assassinate',
-},
+const sampleTargets = [
+  {
+    title: 'Sam',
+    description: "Hi, I'm Sam and I love to assassinate",
+  },
   {
     title: 'James',
-    description: 'The name\'s James',
+    description: "The name's James",
   },
   {
     title: 'Alan',
     description: 'Likes: Winning, Dislikes: You',
-  }];
+  },
+];
 
 const players = new Array(10).fill({
   title: 'Player',
   description: 'Description for player',
 });
 
-const samplePlayers = [{
-  title: 'Bron',
-  description: 'Hide and seek pro!',
-},
+const samplePlayers = [
   {
     title: 'Josh',
     description: 'Catch me if you can!',
+  },
+  {
+    title: 'Bron',
+    description: 'Hide and seek pro!',
   },
   {
     title: 'Ewan',
@@ -72,8 +75,9 @@ const samplePlayers = [{
   },
   {
     title: 'Ewan 2.0',
-    description: 'Beep Boop',
-  }];
+    description: 'woeoeoeoeoeoeoeoeeee they ain\'t gonna know what hit \'em!',
+  },
+];
 
 const ViewGame = () => {
   const renderTarget = ({item, index}) => (
@@ -112,6 +116,9 @@ const ViewGame = () => {
       <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <Text category="h1" style={styles.h1}>
           Game Info:
+        </Text>
+        <Text category="h6" style={styles.h6}>
+          Location: St Andrews, KY16
         </Text>
         <Text category="h6" style={styles.h6}>
           Targets:
