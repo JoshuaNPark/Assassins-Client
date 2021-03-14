@@ -11,7 +11,7 @@ const {Navigator: StackNavigator, Screen} = createStackNavigator();
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <StackNavigator headerMode="none" initialRouteName={'Kill Cam'}>
+      <StackNavigator headerMode="none" initialRouteName={'Test'}>
         <Screen name="Test" component={TestPage} />
         <Screen
           name="Welcome Page"
