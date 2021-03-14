@@ -12,7 +12,7 @@ const {Navigator: StackNavigator, Screen} = createStackNavigator();
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <StackNavigator headerMode="none" initialRouteName={'Test'}>
+      <StackNavigator headerMode="none" initialRouteName={'Welcome Page'}>
         <Screen name="Test" component={TestPage} />
         <Screen
           name="Welcome Page"

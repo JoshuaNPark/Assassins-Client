@@ -8,6 +8,8 @@ interface Response {
   location: string;
   max_players: number;
   end_date: number;
+  name: string;
+  isDead: string;
 }
 
 interface Props {
