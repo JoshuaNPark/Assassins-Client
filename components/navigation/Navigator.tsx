@@ -14,7 +14,7 @@ const {Navigator: StackNavigator, Screen} = createStackNavigator();
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <StackNavigator headerMode="none" initialRouteName={'Welcome Page'}>
+      <StackNavigator headerMode="none" initialRouteName={'View Game'}>
         <Screen name="Test" component={TestPage} />
         <Screen
           name="Welcome Page"
@@ -24,6 +24,7 @@ const Navigator = () => {
         <Screen name="View Game" component={ViewGame} />
         <Screen name="Register" component={Register} />
         <Screen name="Create Game" component={CreateGame} />
+        <Screen name="Kill Cam" component={KillCamScreen} />
       </StackNavigator>
     </NavigationContainer>
   );

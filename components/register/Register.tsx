@@ -22,7 +22,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const Register = () => {
+const Register = (props) => {
+
+  const {navigation} = props;
+
   const [username, setUserName] = useState('');
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
@@ -37,12 +40,12 @@ const Register = () => {
       name,
       bio,
       favouriteLocation: favLoc,
-      onSuccess: (response) => {
-        //TODO: navigate to create game
+      onSuccess: () => {
+        navigation.navigate('Create Game');
       },
       onFailure: () => {},
     });
-  }, [username, name, bio, favLoc]);
+  }, [username, name, bio, favLoc, navigation]);
 
   return (
     <SafeAreaView style={{flex: 1}}>
