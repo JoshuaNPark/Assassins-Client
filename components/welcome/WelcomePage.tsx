@@ -44,6 +44,9 @@ const WelcomePage = (props: Props) => {
   const navigateToJoinGameDetails = useCallback(() => {
     navigation.navigate('Join Game');
   }, [navigation]);
+  const navigateToRegisterDetails = useCallback(() => {
+    navigation.navigate('Register');
+  }, [navigation]);
   const navigateToViewGame = useCallback(() => {
     navigation.navigate('View Game');
   }, [navigation]);
@@ -155,15 +158,13 @@ const WelcomePage = (props: Props) => {
             placeholder="Username"
           />
           <View style={{flexDirection: 'row'}}>
+            <Button style={styles.button} onPress={navigateToRegisterDetails}>Sign Up</Button>
             <Button
               style={styles.button}
               onPress={() => {
                 onLogin(userName);
               }}>
               Login
-            </Button>
-            <Button style={styles.button} onPress={navigateToJoinGameDetails}>
-              Sign Up
             </Button>
           </View>
         </View>
