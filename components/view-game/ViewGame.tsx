@@ -1,5 +1,5 @@
 import {SafeAreaView, StyleSheet, View} from 'react-native';
-import React from 'react';
+import React, {useCallback, useContext} from 'react';
 import {
   Button,
   Divider,
@@ -75,11 +75,12 @@ const samplePlayers = [
   },
   {
     title: 'Ewan 2.0',
-    description: 'woeoeoeoeoeoeoeoeeee they ain\'t gonna know what hit \'em!',
+    description: "woeoeoeoeoeoeoeoeeee they ain't gonna know what hit 'em!",
   },
 ];
 
-const ViewGame = () => {
+const ViewGame = (props) => {
+  const {navigation} = props;
   const renderTarget = ({item, index}) => (
     <ListItem
       title={`${item.title}`}
@@ -110,6 +111,12 @@ const ViewGame = () => {
 
   const renderPlayerIcon = (props) => <Icon {...props} name="person" />;
 
+  const killPressed = useCallback(() => {
+    navigation.navigate('Kill Cam');
+  }, [navigation]);
+
+  const defend = useCallback(() => {}, []);
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <Divider />
@@ -139,12 +146,10 @@ const ViewGame = () => {
           renderItem={renderPlayer}
         />
         <View style={{flexDirection: 'row'}}>
-          <Button
-            style={styles.targetbutton}
-            onPress={console.log('Kill Pressed!')}>
+          <Button style={styles.targetbutton} onPress={killPressed}>
             Kill
           </Button>
-          <Button style={styles.button} onPress={console.log('Defend Pressed')}>
+          <Button style={styles.button} onPress={defend}>
             Defend
           </Button>
         </View>
