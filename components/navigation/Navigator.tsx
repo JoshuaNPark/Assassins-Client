@@ -4,6 +4,7 @@ import WelcomePage from '../welcome/WelcomePage';
 import JoinGame from '../join-game/JoinGame';
 import React from 'react';
 import ViewGame from '../view-game/ViewGame';
+import Register from '../register/Register';
 
 const {Navigator: StackNavigator, Screen} = createStackNavigator();
 
@@ -17,6 +18,7 @@ const Navigator = () => {
         />
         <Screen name="Join Game" component={(props) => <JoinGame {...props} />} />
         <Screen name="View Game" component={ViewGame} />
+        <Screen name="Register" component={Register} />
       </StackNavigator>
     </NavigationContainer>
   );

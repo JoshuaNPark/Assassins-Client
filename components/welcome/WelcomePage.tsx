@@ -31,6 +31,9 @@ const WelcomePage = (props: Props) => {
   const navigateToJoinGameDetails = useCallback(() => {
     navigation.navigate('Join Game');
   }, [navigation]);
+  const navigateToRegisterDetails = useCallback(() => {
+    navigation.navigate('Register');
+  }, [navigation]);
   return (
     <SafeAreaView style={{flex: 1}}>
       <TopNavigation title="Welcome Page" alignment="center" />
@@ -44,7 +47,7 @@ const WelcomePage = (props: Props) => {
           <Input style={styles.input} placeholder='Username'/>
           <View style={{flexDirection: 'row'}}>
             <Button style={styles.button} onPress={navigateToJoinGameDetails}>Login</Button>
-            <Button style={styles.button} onPress={navigateToJoinGameDetails}>Sign Up</Button>
+            <Button style={styles.button} onPress={navigateToRegisterDetails}>Sign Up</Button>
           </View>
         </View>
       </Layout>
